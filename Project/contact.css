@@ -1,0 +1,844 @@
+/*-----------------------------------*\
+  #contact.css
+\*-----------------------------------*/
+:root {
+
+    /**
+     * colors
+     */
+  
+    --dark-jungle-green: hsl(188, 63%, 7%);
+    --third-green: hsl(104, 100%, 19%);
+    --raisin-black-1: hsl(227, 29%, 13%);
+    --raisin-black-2: hsl(229, 17%, 19%);
+    --green: #008000;
+    --second-green: hsl(122, 100%, 28%);
+    --cultured-1: hsl(0, 0%, 93%);
+    --cultured-2: hsl(192, 24%, 96%);
+    --misty-yellow: hsl(55, 100%, 74%);
+    --alice-blue: hsl(210, 100%, 97%);
+    --seashell: hsl(66, 100%, 77%);
+    --cadet: hsl(200, 15%, 43%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --opal: hsl(180, 20%, 62%);
+    --yellow: rgb(255, 242, 0);
+  
+    /**
+     * typography
+     */
+  
+    --ff-nunito-sans: "Nunito Sans", sans-serif;
+    --ff-poppins: "Poppins", sans-serif;
+  
+    --fs-1: 1.875rem;
+    --fs-2: 1.5rem;
+    --fs-3: 1.375rem;
+    --fs-4: 1.125rem;
+    --fs-5: 0.875rem;
+    --fs-6: 0.813rem;
+    --fs-7: 0.75rem;
+  
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+  
+    /**
+     * spacing
+     */
+  
+    --section-padding: 100px;
+    /**
+   * transition
+   */
+
+   --transition: 0.25s ease;
+  
+  }
+   
+  /*-----------------------------------*\
+    #RESET
+  \*-----------------------------------*/
+  
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  li { list-style: none; }
+  
+  a { text-decoration: none; }
+  
+  a,
+  img,
+  span,
+  button,
+  ion-icon { display: block; }
+  
+  button {
+    border: none;
+    background: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  address { font-style: normal; }
+  
+  ion-icon { pointer-events: none; }
+  
+  html {
+    font-family: var(--ff-nunito-sans);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: var(--white);
+    overflow-x: hidden;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track { background: var(--white); }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--cadet);
+    border-left: 2px solid var(--white);
+  }
+  
+  
+  .container { padding-inline: 15px; }
+  
+  button, a { transition: var(--transition); }
+  
+  .h1,
+  .h2,
+  .h3 {
+    color: var(--dark-jungle-green);
+    font-family: var(--ff-poppins);
+    line-height: 1.3;
+  }
+  
+  .h1 {
+    font-size: var(--fs-1);
+    line-height: 1;
+  }
+  
+  .h2 { font-size: var(--fs-2); }
+  
+  .h3 {
+    font-size: var(--fs-4);
+    font-weight: var(--font-weight, 700);
+  }
+  
+  .h3 > a { color: inherit; }
+  
+  .btn {
+    position: relative;
+    background: var(--green);
+    color: var(--white);
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-5);
+    text-transform: var(--text-transform, capitalize);
+    border: 1px solid var(--green);
+    padding: 10px 20px;
+    z-index: 1;
+  }
+  
+  .btn:is(:hover, :focus) {
+    background: var(--black);
+    color: var(--dark-jungle-green);
+    border-color: var(--black);
+  }
+  
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--white);
+    transition: var(--transition);
+    z-index: -1;
+  }
+  
+  .btn:is(:hover, :focus)::before { width: 100%; }
+  
+  .w-100 { width: 100%; }
+  
+  .section-subtitle {
+    color: var(--second-green);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    padding: 5px 20px;
+    background: hsla(9, 100%, 62%, 0.1);
+    width: max-content;
+    border-radius: 50px;
+    margin-inline: auto;
+    margin-bottom: 15px;
+  }
+  
+  .section-title {
+    text-align: var(--text-align, center);
+    margin-bottom: var(--margin-bottom, 50px);
+  }
+  
+  .card-badge {
+    background: var(--black);
+    color: var(--white);
+    font-size: var(--fs-7);
+    text-transform: uppercase;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 10px;
+  }
+  
+  .card-badge.green { background: var(--green); }
+  
+  .card-badge.orange { background: var(--second-green); }
+  
+  .has-scrollbar {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    overflow-x: auto;
+    margin-inline: -15px;
+    padding-inline: 15px;
+    scroll-padding-left: 15px;
+    padding-bottom: 60px;
+    scroll-snap-type: inline mandatory;
+  }
+  
+  .has-scrollbar > li {
+    min-width: 100%;
+    scroll-snap-align: start;
+  }
+  
+  .has-scrollbar::-webkit-scrollbar-track {
+    background: var(--cultured-2);
+    outline: 2px solid var(--cadet);
+    border-radius: 10px;
+  }
+  
+  .has-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--cadet);
+    border: 1px solid var(--cultured-2);
+    border-radius: 10px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar-button { width: 15%; }
+
+  /*-----------------------------------*\
+    #HEADER
+  \*-----------------------------------*/
+  
+  .header {
+    background-color: #008000;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .header-bottom .logo img { margin-inline: auto; }
+
+
+  .navbar-link {
+    color: white;
+    font-size: var(--fs-4); 
+    font-weight: var(--fw-700);
+    text-transform: uppercase;
+
+  }
+
+  .navbar-link:is(:hover, :focus) { color: var(--yellow); }
+
+  /*-----------------------------------*\
+    #CONTACT
+  \*-----------------------------------*/
+
+
+/* Ensure the bottom-background div contains the image */
+.bottom-background {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Set the desired height for the image */
+    overflow: hidden; /* Hide anything that overflows (crop the image if necessary) */
+}
+
+.bottom-background img {
+    width: 100%;  /* Ensure the image spans the full width */
+    height: 100%; /* Ensure the image height fills the container */
+    object-fit: cover; /* Crop the image to maintain its aspect ratio */
+}
+
+/* Main content classes */
+.firstmain, .secondmain {
+    margin-left: 205px;
+    padding: 20px;
+}
+
+/* To prevent firstmain and secondmain from overlapping the image */
+.firstmain, .secondmain {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px; /* Optional: adds space between the image and content */
+}
+
+
+
+.row {
+    display: flex; /* Use flexbox for horizontal alignment */
+    width: 100%; /* Ensure the row takes up full width */
+  }
+  
+  .row-eq-height {
+    margin-bottom: 70px; /* Adjust the value as needed */
+}
+
+
+  .find-an-agent {
+    display: flex; /* Align the image and content side by side */
+    align-items: stretch; /* Ensure both items stretch to the same height */
+    width: 100%; /* Ensure the content takes up the full available width */
+
+  }
+  
+  .image-container {
+    flex: 1; /* Make the image container take equal space as the content box */
+    height: 100%; /* Ensure it stretches to the same height as the content box */
+}
+
+.image-container img {
+    width: 60%; /* Ensure the image spans the entire container */
+    height: 100%; /* Make the image height fill the container */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+    margin-left: 225px;
+
+}
+  
+  .content-box {
+    flex: 1.5; /* Make the content box take equal space as the image */
+    background-color: #ffeb3b; /* Set the background color to yellow */
+    display: flex;
+    flex-direction: column; /* Stack the text and buttons vertically */
+    justify-content: space-between; /* Distribute space between text and buttons */
+    padding: 40px 30px 30px 30px; /* Add padding inside the content box */
+    height: 100%;
+    width: 100;
+    margin-right: 100px;
+  }
+  
+  .text h2 {
+    font-size: 1.875rem;
+    margin-bottom: 10px;
+  }
+  
+  .text p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    gap: 20px; /* Space between buttons */
+  }
+  
+  .buttons .btn {
+    width: 29%; 
+  }
+
+
+  
+  .report-a-concern-box {
+    background-color: #f8f9fa; /* Light background */
+    border: 1px solid #040202; /* black border for the box */
+    padding: 20px;
+    margin: 50px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    margin-left: 275px;
+    margin-right: 150px;
+  }
+  
+  .report-a-concern-box .d-sm-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .left-text {
+    flex: 1;
+    margin-right: 20px; /* Space between left text and the button */
+  }
+  
+  .report-a-concern-box .report-a-concern {
+    display: flex;
+    align-items: center; /* Align the text horizontally */
+  }
+  
+  .report-a-concern-box .report-a-concern p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333; /* Darker text for contrast */
+  }
+  
+  .report-a-concern-box .report-a-concern p:first-child {
+    border-right: 4px solid #000000; /* black border on the right */
+    padding-right: 20px; /* Space for the border */
+  }
+  
+  .report-a-concern-box .corporate-questions {
+    font-size: 1rem;
+    color: #666;
+    padding-left: 20px;
+  }
+  
+  .concern-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .w-100 {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .w-100 .small {
+    font-size: 0.875rem;
+    color: #777; /* Gray text */
+    margin-bottom: 0;
+    padding-top: 10px;
+  }
+  
+
+  .hidden-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust width to make it larger */
+    max-height: 90%; /* Ensure it doesn't exceed viewport height */
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    overflow-y: auto; /* Enables scrolling for content overflow */
+    z-index: 1000;
+  }
+  
+  .hidden-box h2 {
+    margin-top: 0;
+    text-align: center; /* Center the title */
+  }
+  
+  .hidden-box label {
+    display: block;
+    margin: 15px 0 5px;
+  }
+  
+  .hidden-box input,
+  .hidden-box textarea,
+  .hidden-box select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Positions buttons at opposite ends */
+  margin-top: 20px; /* Adds some space above the buttons */
+}
+
+.button-container .btn-secondary {
+  margin-right: auto; /* Pushes the "Close" button to the left */
+}
+
+.button-container .btn-primary {
+  margin-left: auto; /* Pushes the "Submit" button to the right */
+}
+
+  
+  
+body.modal-open {
+    overflow: hidden; /* Prevents background scrolling */
+}
+  
+
+
+
+
+  
+  .last-things {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures spacing between the items */
+    gap: 20px; /* Adds some space between the columns */
+    margin-left: 225px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+  }
+  
+  .button-box {
+    background-color: #f8f9fa; /* Light background */
+    border: 2px solid green; /* Border for the button box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    overflow: hidden; /* Ensures the rounded corners are clean */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effect on hover */
+
+  }
+
+  /* Hover effect for .button-box */
+.button-box:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 4px 12px green; /* Darker shadow */
+  }
+  
+  .button-box-header {
+    background-color: green; /* Blue header background */
+    padding: 15px;
+    color: #fff; /* White text */
+    text-align: left;
+  }
+  
+  .button-box-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  .button-box img {
+    width: 100%;
+    height: auto; /* Ensures the image maintains its aspect ratio */
+  }
+  
+  
+  .button-box-footer {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .button-box-footer p {
+    margin: 10px 0;
+  }
+  
+  .text-line {
+    display: block; /* Makes each line appear on a new row */
+    font-weight: 600;
+  }
+  
+
+  
+  /*-----------------------------------*\
+    #FOOTER
+  \*-----------------------------------*/
+  
+  .footer {
+    background: var(--third-green);
+    color: var(--white);
+    margin-bottom: 68px;
+    
+  }
+  
+  .footer .container { padding-inline: 30px; }
+  
+  .footer a { color: inherit; }
+  
+  .footer-top {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  
+  .footer-brand { margin-bottom: 70px; }
+  
+  .footer-brand .logo { margin-bottom: 15px; }
+  
+  .section-text {
+    font-size: var(--fs-5);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 45ch;
+  }
+  
+  .contact-list {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .contact-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .contact-link ion-icon { font-size: 18px; }
+  
+  .contact-link :is(address, span) {
+    font-size: var(--fs-5);
+    transition: var(--transition);
+  }
+  
+  .contact-link:is(:hover, :focus) span { color: var(--second-green); }
+  
+  .social-list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .footer-list:not(:last-child) { margin-bottom: 50px; }
+  
+  .footer-list-title {
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-3);
+    font-weight: var(--fw-700);
+    margin-bottom: 15px;
+  }
+  
+  .footer-link {
+    font-size: var(--fs-5);
+    padding-block: 10px;
+  }
+  
+  .footer-link:is(:hover, :focus) { color: var(--second-green); }
+  
+  .footer-bottom {
+    background: var(--green);
+    padding-block: 25px;
+  }
+  
+  .copyright {
+    font-size: var(--fs-5);
+    text-align: center;
+  }
+  
+  .copyright a { display: inline-block; }
+  
+  .copyright a:is(:hover, :focus) { color: var(--second-green); }
+  
+
+  /*-----------------------------------*\
+    #MEDIA QUERIES
+  \*-----------------------------------*/
+  
+  /**
+   * responsive for larger than 600px screen
+   */
+  
+  @media (min-width: 600px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-2: 1.875rem;
+  
+    }
+  
+
+    /**
+     * REUSED STYLE
+     */
+  
+    .container {
+      max-width: 550px;
+      margin-inline: auto;
+    }
+  
+    .has-scrollbar {
+      gap: 25px;
+      margin-inline: -25px;
+      padding-inline: 25px;
+      scroll-padding-left: 25px;
+    }
+  
+    .has-scrollbar > li { min-width: calc(50% - 12.5px); }
+  
+
+    /**
+     * FOOTER
+     */
+  
+    .footer-link-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  
+  }
+  
+
+  
+  /**
+   * responsive for larger than 768px screen
+   */
+  
+  @media (min-width: 768px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 2.5rem;
+      --fs-5: 0.938rem;
+      --fs-6: 0.875rem;
+  
+    }
+  
+
+    /**
+     * REUSED STYLE
+     */
+  
+    .container { max-width: 720px; }
+  
+    .btn {
+      --fs-5: 1rem;
+      padding: 12px 28px;
+    }
+  
+
+    /**
+     * HEADER
+     */
+  
+
+  
+    .header-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+
+    /**
+     * FOOTER
+     */
+  
+    .footer { margin-bottom: 0; }
+  
+  }
+  
+  /**
+   * responsive for larger than 992px screen
+   */
+  
+  @media (min-width: 992px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 3.125rem;
+      --fs-4: 1.375rem;
+  
+    }
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .container { max-width: 970px; }
+  
+    .btn { padding: 15px 40px; }
+  
+    /**
+     * FOOTER
+     */
+  
+    .footer-top .container {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .footer-brand {
+      max-width: 300px;
+      margin-bottom: 0;
+    }
+  
+    .footer-link-box { flex-basis: 550px; }
+  
+  }
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-2: 2.75rem;
+      --fs-4: 1.5rem;
+  
+    }
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .container { max-width: 1200px; }
+  
+    .has-scrollbar > li { min-width: calc(33.33% - 16.66px); }
+  
+    /**
+     * HEADER
+     */
+
+    .navbar-list {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-left: -900px; 
+    }
+  
+    .navbar-link {
+      color: var(--white);
+      --fs-5: 1.125rem;
+      text-transform: capitalize;
+    }
+  
+    .header { padding-bottom: 114px; }
+  
+    .header-bottom {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding-block: 20px;
+    }
+    /**
+     * FOOTER
+     */
+  
+    .footer { --fs-5: 1rem; }
+  
+    .footer-link-box { flex-basis: 700px; }

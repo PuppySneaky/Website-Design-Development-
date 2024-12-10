@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="contact.css">
+    <link rel="icon" type="image/png" href="favicon.png" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icon.min.css">
+
+
+</head>
+
+<body>
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="header-bottom">
+      <div class="container">
+
+        <a href="#" class="logo">
+          <img src="LogoLightHeader.png" alt="Dynasty 8 logo">
+        </a>
+        <nav class="navbar" data-navbar>
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+
+              <li>
+                <a href="mainsite.html" class="navbar-link" data-nav-link>Home</a>
+              </li>
+
+              <li>
+                <a href="contact.html" class="navbar-link" data-nav-link>Contact</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </nav>
+
+
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- 
+    - #CONTACT
+  -->
+
+
+  <main>
+    <div class="bottom-background">
+      <img src="building.jpg" alt="Background">
+    </div>
+  
+    <div class="firstmain">
+      <div class="tittle1"><h1>Contact</h1></div>
+    </div>
+
+  
+    <div class="secondmain">
+      <h2>How Can We Help?</h2>
+      <p class="subtitle">Dynasty 8<sup>®</sup> Real estate is here to make your experience truly remarkable.</p>
+    </div>
+
+
+    <div class="row row-eq-height">
+        <div class="find-an-agent">
+          <div class="image-container">
+            <img src="about.jpg" alt="Agent">
+          </div>
+          <div class="content-box">
+            <div class="text">
+              <h2>Find an Agent</h2>
+              <p>Dynasty 8<sup>®</sup> Agents believe in the value of delivering extraordinary experiences by defying mediocrity and always giving you 121%.</p>
+            </div>
+            <div class="buttons">
+              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#findByZipCode">
+                Find in Your Area
+              </button>
+              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#findByName">
+                Find by Name
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="report-a-concern-box">
+        <div class="d-sm-flex justify-content-between align-items-end">
+          <div class="left-text">
+            <div class="report-a-concern d-flex align-items-center">
+              <p>CONSUMER CONCERN</p>
+              <p class="corporate-questions">Corporate questions or other concerns?</p>
+            </div>
+          </div>
+          <div class="concern-button">
+            <button id="reportConcernButton" class="btn btn-outline-primary">
+              Report a Concern
+            </a>
+          </div>
+        </div>
+        <div class="w-100">
+          <p class="small mb-0 pt-1">If you are a Dynasty 8 broker or agent, please contact the D8 Help Desk or your Growth Consultant with any questions or concerns.</p>
+        </div>
+      </div>
+
+
+      <!-- Hidden Contact Form Box -->
+<div id="contactFormBox" class="hidden-box">
+  <form id="contactForm">
+    <h2>Report a Concern</h2>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+    
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+    
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="country">In what country is the office located?</label>
+    <select id="country" name="country" required>
+      <option value="">Select Country</option>
+      <option value="US">United States</option>
+      <option value="Canada">Canada</option>
+      <option value="UK">United Kingdom</option>
+      <option value="Australia">Australia</option>
+      <option value="Germany">Germany</option>
+      <option value="France">France</option>
+      <option value="Italy">Italy</option>
+      <option value="Spain">Spain</option>
+      <option value="Netherlands">Netherlands</option>
+      <option value="Sweden">Sweden</option>
+      <option value="Belgium">Belgium</option>
+      <option value="Switzerland">Switzerland</option>
+      <option value="Austria">Austria</option>
+      <option value="Ireland">Ireland</option>
+      <option value="Norway">Norway</option>
+      <option value="Denmark">Denmark</option>
+    </select>
+    
+    <label for="incidentDate">What was the date of the incident?</label>
+    <input type="date" id="incidentDate" name="incidentDate" required>
+    
+    <label for="issueDescription">Please describe the issue you had:</label>
+    <textarea id="issueDescription" name="issueDescription" rows="5" required></textarea>
+    
+    <label for="fileUpload">File Upload:</label>
+    <input type="file" id="fileUpload" name="fileUpload">
+    
+    <div class="button-container">
+      <button type="button" class="btn btn-secondary" id="closeContactForm">Close</button>
+      <button type="submit" class="btn btn-primary" id="submitContactForm">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+      <div class="last-things">
+        <div class="col-12 col-lg-4">
+          <div class="button-box">
+            <div class="button-box-header">
+              <h3>Careers in Real Estate</h3>
+            </div>
+            <img src="career.jpg" class="img-fluid" alt="Man thinking">
+            <div class="button-box-footer">
+              <p>
+                <span class="text-line">Contact the Dynasty 8 Career team</span>
+              <p>
+                <a class="btn btn-outline-primary">Join Dynasty 8</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="button-box">
+            <div class="button-box-header">
+              <h3>Franchise</h3>
+            </div>
+            <img src="office.jpg" class="img-fluid" alt="Century 21 office">
+            <div class="button-box-footer">
+              <p>
+                <span class="text-line">Franchising opportunities</span>
+              </p>
+              <p>
+                <a class="btn btn-outline-primary">Franchise 8</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="button-box">
+            <div class="button-box-header">
+              <h3>Media Inquiries</h3>
+            </div>
+            <img src="medias.jpg" class="img-fluid" alt="Man checking phone">
+            <div class="button-box-footer">
+              <p>
+                <span class="text-line">Trevor Philips Public Relations</span>
+              </p>
+              <p>
+                <a class="btn btn-outline-primary">Media Contact</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      
+
+  </main>
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="LogoLightHeader.png" alt="Homeverse logo">
+          </a>
+
+          <p class="section-text">
+            The best move you'll ever make!
+          </p>
+
+          <ul class="contact-list">
+
+            <li>
+              <a href="#" class="contact-link">
+                <ion-icon name="location-outline"></ion-icon>
+
+                <address>Pillbox Hill, Los Santos, State of San Andreas, United States</address>
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+0123456789" class="contact-link">
+                <ion-icon name="call-outline"></ion-icon>
+
+                <span>(310)-555-0156</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:contact@homeverse.com" class="contact-link">
+                <ion-icon name="mail-outline"></ion-icon>
+
+                <span>contact@dynasty8.com</span>
+              </a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-link-box">
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Company</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">About</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Blog</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">All Products</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Locations Map</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact us</a>
+            </li>
+
+          </ul>
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Services</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Order tracking</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Wish List</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Login</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">My account</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Promotional Offers</a>
+            </li>
+
+          </ul>
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Customer Care</p>
+            </li>
+
+            <li>
+              <a href="Login.html" class="footer-link">Login</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">My account</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Wish List</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Order tracking</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact us</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 <a href="#">Dynasty 8</a>. All Rights Reserved
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+  <script src="contact.js"></script>
+
+</body>
+
+</html>

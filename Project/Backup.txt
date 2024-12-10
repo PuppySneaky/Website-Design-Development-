@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .background-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('showcase.jpg');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+    }
+    .logo-container img {
+      width: 350px;
+      height: auto;
+    }
+    .login-box {
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+      background-color: white;
+    }
+    .form-control, .btn-primary {
+      border: 2px solid green;
+      border-radius: 4px;
+    }
+    .btn-primary {
+      background-color: green;
+    }
+    .btn-primary:hover {
+      background-color: rgb(255, 242, 0);
+      border-color: rgb(255, 242, 0);
+      color: black;
+    }
+    .password-toggle {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background-color: white;
+      color: green;
+      border: 0px solid green;
+      border-radius: 50%;
+      padding: 8px;
+      height: 30px;
+      width: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.875rem;
+      margin-top: 10px;
+      display: none;
+    }
+    .links-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .sign-up-container {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="logo-container">
+            <img src="Logo.png" alt="Logo">
+        </div>
+        
+        <!-- Sign In Box -->
+        <div id="signInBox" class="login-box">
+          <h3 class="text-center mb-4">Sign In</h3>
+          <form id="loginForm" onsubmit="return validateForm()">
+            <div class="form-group mb-3 position-relative">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group mb-3 position-relative">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+              <span class="password-toggle" onclick="togglePasswordVisibility('password', 'toggleIcon')">
+                <i id="toggleIcon" class="bi bi-eye-slash-fill"></i>
+              </span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mb-3">Sign In</button>
+
+            <div class="links-container">
+              <a href="#" style="color: green;">Forgot Password?</a>
+              <div class="sign-up-container">
+                <span>New to here?</span>
+                <a href="#" onclick="toggleForm()" style="color: green; margin-left: 5px;">Sign Up</a>
+              </div>
+            </div>
+
+            <div id="error-message" class="error-message">Please fill in both the email and password fields.</div>
+          </form>
+        </div>
+
+        <!-- Sign Up Box (initially hidden) -->
+        <div id="signUpBox" class="login-box" style="display: none;">
+          <h3 class="text-center mb-4">Sign Up</h3>
+          <form id="signUpForm" onsubmit="return validateSignUpForm()">
+            <div class="form-group mb-3 position-relative">
+              <label for="signUpEmail" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="signUpEmail" placeholder="Enter email">
+            </div>
+            <div class="form-group mb-3 position-relative">
+              <label for="signUpPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+              <span class="password-toggle" onclick="togglePasswordVisibility('signUpPassword', 'toggleSignUpIcon')">
+                <i id="toggleSignUpIcon" class="bi bi-eye-slash-fill"></i>
+              </span>
+            </div>
+            <div class="form-group mb-3 position-relative">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+              <span class="password-toggle" onclick="togglePasswordVisibility('confirmPassword', 'toggleConfirmIcon')">
+                <i id="toggleConfirmIcon" class="bi bi-eye-slash-fill"></i>
+              </span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mb-3">Sign Up</button>
+
+            <div class="text-center">
+              <a href="#" onclick="toggleForm()" style="color: green;">Already have an account? Sign In</a>
+            </div>
+
+            <div id="signUpError" class="error-message">Please fill in all fields and make sure passwords match.</div>
+          </form>
+        </div>
+
+    </div>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script>
+      function toggleForm() {
+        const signInBox = document.getElementById('signInBox');
+        const signUpBox = document.getElementById('signUpBox');
+        signInBox.style.display = signInBox.style.display === 'none' ? 'block' : 'none';
+        signUpBox.style.display = signUpBox.style.display === 'none' ? 'block' : 'none';
+      }
+
+      function togglePasswordVisibility(inputId, iconId) {
+        const passwordInput = document.getElementById(inputId);
+        const toggleIcon = document.getElementById(iconId);
+        
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          toggleIcon.classList.replace('bi-eye-slash-fill', 'bi-eye-fill');
+        } else {
+          passwordInput.type = 'password';
+          toggleIcon.classList.replace('bi-eye-fill', 'bi-eye-slash-fill');
+        }
+      }
+
+      function validateForm() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+        
+        if (!email || !password) {
+          errorMessage.style.display = 'block';
+          return false;
+        }
+        
+        errorMessage.style.display = 'none';
+        return true;
+      }
+
+      function validateSignUpForm() {
+        const email = document.getElementById('signUpEmail').value;
+        const password = document.getElementById('signUpPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const signUpError = document.getElementById('signUpError');
+
+        if (!email || !password || !confirmPassword || password !== confirmPassword) {
+          signUpError.style.display = 'block';
+          return false;
+        }
+
+        signUpError.style.display = 'none';
+        return true;
+      }
+    </script>
+</body>
+</html>
